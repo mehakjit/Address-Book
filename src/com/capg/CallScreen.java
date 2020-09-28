@@ -11,6 +11,7 @@ public class CallScreen {
 		int a = 0;
 		while(a !=1){
 			System.out.println("Press 1 to Add Contact.");
+			System.out.println("Press 2 to edit Exisiting Contact.");
 			System.out.println("Press 0 to Exit.");
 			
 			int input = sc.nextInt();
@@ -43,9 +44,15 @@ public class CallScreen {
 					addBook.addContact(newContact);
 					addBook.viewBook(addBook.book);
 					break;
-					default:
-						System.out.println("Invalid");
-						break;			
+				case 2:
+					addBook.viewBook(addBook.book);
+					System.out.println("Enter first name of existing contact you want to change: ");
+			        String firstName1 = sc.nextLine();
+					addBook.editContact(firstName1, sc);
+					break;
+				default:
+					System.out.println("Invalid");
+					break;			
 				}
 		}
 		sc.close();
