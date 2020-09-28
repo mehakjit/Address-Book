@@ -49,7 +49,7 @@ public class CallScreen {
 					addBook.viewBook(addBook.book);
 					System.out.println("Enter first name of existing contact you want to change: ");
 			        String firstName1 = sc.nextLine();
-					addBook.editContact(firstName1, sc);
+					System.out.println(addBook.editContact(firstName1, sc));
 					break;
 				case 3:
 					addBook.viewBook(addBook.book);
