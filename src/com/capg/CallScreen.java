@@ -21,20 +21,20 @@ public class CallScreen {
 					a=1;
 					break;
 				case 1:
-					System.out.println("Enter first name: ");
+					System.out.println("Enter First name: ");
 					String firstName = sc.nextLine();
-					System.out.println("Enter last name: "); 
+					System.out.println("Enter Last name: "); 
 					String lastName = sc.nextLine();
-					System.out.println("Enter address: "); 
+					System.out.println("Enter Address: "); 
 					String address = sc.nextLine();
-					System.out.println("Enter city name: ");
+					System.out.println("Enter City name: ");
 					String city = sc.nextLine();
-					System.out.println("Enter state name: ");
+					System.out.println("Enter State name: ");
 					String state = sc.nextLine();
-					System.out.println("Enter zip code: "); 
+					System.out.println("Enter Zip code: "); 
 					int zipCode = sc.nextInt();
 					sc.nextLine();
-					System.out.println("Enter phone no: "); 
+					System.out.println("Enter Phone no: "); 
 					String phoneNo = sc.nextLine();
 					System.out.println("Enter e-mail address: ");
 					String email = sc.nextLine();
