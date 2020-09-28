@@ -4,14 +4,15 @@ import java.util.Scanner;
 
 public class CallScreen {
 	public void screen(){
-		Scanner sc = new Scanner(System.in);
 		
+		Scanner sc = new Scanner(System.in);
 		AddressBook addBook = new AddressBook();
 		
 		int a = 0;
 		while(a !=1){
 			System.out.println("Press 1 to Add Contact.");
 			System.out.println("Press 2 to edit Exisiting Contact.");
+			System.out.println("Press 3 to delete Exisiting Contact.");
 			System.out.println("Press 0 to Exit.");
 			
 			int input = sc.nextInt();
@@ -50,6 +51,12 @@ public class CallScreen {
 			        String firstName1 = sc.nextLine();
 					addBook.editContact(firstName1, sc);
 					break;
+				case 3:
+					addBook.viewBook(addBook.book);
+					System.out.println("Enter first name of existing contact you want to delete: ");
+			        String firstName2 = sc.nextLine();
+					addBook.deleteContact(firstName2);
+					break;	
 				default:
 					System.out.println("Invalid");
 					break;			

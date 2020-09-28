@@ -15,20 +15,32 @@ public class AddressBook {
 		for (Contact c : book) {
 			System.out.println(c);
 		}
-	}	
+	}
+	public void deleteContact(String firstName) {
+		for(Contact z: book) {
+			if(z.firstName.equalsIgnoreCase(firstName)) {
+				book.remove(z);
+				System.out.println("Deleted Contact ");
+				return;
+			}
+		}
+		System.out.println("Couldn't find Contact");
+		return;
+	}
+	
 	public String editContact(String firstName, Scanner sc) {
 	 int y=0;
 	 for(Contact x: book) {
 		 if(x.firstName.equalsIgnoreCase(firstName)) {
 		 int i =1;
 		 while(i!=0) {
-			 System.out.println("Enter 1 to update th last name");
-			 System.out.println("Enter 2 to update the address");
-			 System.out.println("Enter 3 to update the city");
-			 System.out.println("Enter 4 to update the state");
-			 System.out.println("Enter 5 to update the zipcode");
-			 System.out.println("Enter 6 to update the phone number");
-			 System.out.println("Enter 7 to update the email");
+			 System.out.println("Enter 1 to edit the last name");
+			 System.out.println("Enter 2 to edit the address");
+			 System.out.println("Enter 3 to edit the city");
+			 System.out.println("Enter 4 to edit the state");
+			 System.out.println("Enter 5 to edit the zipcode");
+			 System.out.println("Enter 6 to edit the phone number");
+			 System.out.println("Enter 7 to edit the email");
 			 System.out.println("Enter 0 to exit");
 			 i = sc.nextInt();
 			 sc.nextLine();
@@ -83,5 +95,5 @@ public class AddressBook {
 		 return "Contact updated";
 	 else
 		 return "No contact found with this name";
-}
+	}
 }
