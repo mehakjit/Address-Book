@@ -3,66 +3,69 @@ package com.capg;
 import java.util.Scanner;
 
 public class CallScreen {
-	public void screen(){
-		
+	public void function(AddressBook book) {
+		// TODO Auto-generated method stub
+		System.out.println("Welcome to Adress Book " + book.getName());
 		Scanner sc = new Scanner(System.in);
-		AddressBook addBook = new AddressBook();
-		
-		int a = 0;
-		while(a !=1){
-			System.out.println("Press 1 to Add Contact.");
-			System.out.println("Press 2 to edit Exisiting Contact.");
-			System.out.println("Press 3 to delete Exisiting Contact.");
-			System.out.println("Press 0 to Exit.");
-			
-			int input = sc.nextInt();
+		int i = 1;
+		while (i != 0) {
+			String firstName = "";
+			System.out.println("Enter 1 to add a contact");
+			System.out.println("Enter 2 to edit the contact");
+			System.out.println("Enter 3 to delete the contact");
+			System.out.println("Enter 0 to exit");
+			i = sc.nextInt();
 			sc.nextLine();
-				switch(input) {
-				case 0:
-					System.out.println("Exiting...");
-					a=1;
-					break;
-				case 1:
-					System.out.println("Enter First name: ");
-					String firstName = sc.nextLine();
-					System.out.println("Enter Last name: "); 
-					String lastName = sc.nextLine();
-					System.out.println("Enter Address: "); 
+			switch (i) {
+			case 1:
+				System.out.println("Enter the first name: ");
+				String fname = sc.nextLine();
+				if(book.hasContact(fname)) {
+					System.out.println("contact already exists");
+				} else {
+					System.out.println("Enter last name: ");
+					String lname = sc.nextLine();
+					System.out.println("Enter address: ");
 					String address = sc.nextLine();
-					System.out.println("Enter City name: ");
+					System.out.println("Enter city: ");
 					String city = sc.nextLine();
-					System.out.println("Enter State name: ");
+					System.out.println("Enter state: ");
 					String state = sc.nextLine();
-					System.out.println("Enter Zip code: "); 
-					int zipCode = sc.nextInt();
+					System.out.println("Enter zip: ");
+					int zip = sc.nextInt();
+					System.out.println("Enter phone number: ");
 					sc.nextLine();
-					System.out.println("Enter Phone no: "); 
-					String phoneNo = sc.nextLine();
-					System.out.println("Enter e-mail address: ");
+					String phoneNumber = sc.nextLine();
+					System.out.println("Enter email: ");
 					String email = sc.nextLine();
-					
-					Contact newContact = new Contact(firstName, lastName, address, city, state, zipCode, phoneNo, email);
-					addBook.addContact(newContact);
-					addBook.viewBook(addBook.book);
-					break;
-				case 2:
-					addBook.viewBook(addBook.book);
-					System.out.println("Enter first name of existing contact you want to change: ");
-			        String firstName1 = sc.nextLine();
-					System.out.println(addBook.editContact(firstName1, sc));
-					break;
-				case 3:
-					addBook.viewBook(addBook.book);
-					System.out.println("Enter first name of existing contact you want to delete: ");
-			        String firstName2 = sc.nextLine();
-					addBook.deleteContact(firstName2);
-					break;	
-				default:
-					System.out.println("Invalid");
-					break;			
+					Contact contact = new Contact(fname, lname, address, city, state, zip, phoneNumber, email);
+					book.addContact(contact);
+					book.viewBook(book.getBook());
 				}
+				break;
+		
+			case 2:
+				System.out.println("Update Contact:");
+				System.out.println("Enter first name: ");
+				firstName = sc.nextLine();
+				book.updateContact(firstName, sc);
+				break;
+			case 3:
+				System.out.println("Delete Contact:");
+				book.viewBook(book.book);
+				System.out.println("Enter first name: ");
+				firstName = sc.nextLine();
+				book.deleteContact(firstName);
+				book.viewBook(book.book);
+				break;
+			case 0:
+				System.out.println("Exiting the process");
+				break;
+			default:
+				System.out.println("Enter valid entry");
+			}
 		}
-		sc.close();
-	}
 
+	}
 }
+
